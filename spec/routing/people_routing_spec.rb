@@ -31,5 +31,18 @@ describe PeopleController do
       delete("/people/1").should route_to("people#destroy", :id => "1")
     end
 
+
+    it "routes to #show_kintai" do
+      get("/people/1/work").should route_to("people#show_kintai", :id => "1")
+    end
+
+    it "routes to #start" do
+      post("/people/1/work").should route_to("people#start", :id => "1")
+    end
+
+    it "routes to #finish" do
+      put("/people/1/work").should route_to("people#finish", :id => "1")
+    end
+
   end
 end
