@@ -164,4 +164,28 @@ describe PeopleController do
     end
   end
 
+  describe "POST start" do
+    it "creates a new Work for person" do
+      Work.delete_all
+      person = Person.create! valid_attributes
+      expect {
+        post :start, {:id => person.id}, valid_session
+      }.to change(Work, :count).by(1)
+      work = Work.first
+      work.started_at.should_not be_nil
+    end
+  end
+
+  describe "PUT finish" do
+    it "update a last Work for person" do
+      person = Person.create! valid_attributes
+      work = person.works.create!(:started_at => 8.hours.ago)
+      expect {
+        put :finish, {:id => person.id}, valid_session
+      }.to_not change(Work, :count)
+      work.finished_at.should_not be_nil
+    end
+  end
+
+
 end
