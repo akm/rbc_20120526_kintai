@@ -39,4 +39,5 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem "rspec-rails", "~> 2.10.1"
+  gem "autotest"
 end
