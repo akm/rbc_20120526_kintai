@@ -12,7 +12,7 @@
 
 <% @works.each do |work| %>
   <tr>
-    <td><%= work.person %></td>
+    <td><%= work.person.name %></td>
     <td><%= work.started_at %></td>
     <td><%= work.finished_at %></td>
     <td><%= link_to 'Show', work %></td>

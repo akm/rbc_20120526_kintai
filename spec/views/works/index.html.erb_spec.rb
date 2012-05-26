@@ -4,10 +4,10 @@ describe "works/index" do
   before(:each) do
     assign(:works, [
       stub_model(Work,
-        :person => nil
+        :person => stub_model(Person, :name => "foo")
       ),
       stub_model(Work,
-        :person => nil
+        :person => stub_model(Person, :name => "foo")
       )
     ])
   end
@@ -15,6 +15,6 @@ describe "works/index" do
   it "renders a list of works" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => nil.to_s, :count => 2
+    assert_select "tr>td", :text => "foo", :count => 2
   end
 end
