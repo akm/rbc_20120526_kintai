@@ -1,5 +1,11 @@
 Kintai::Application.routes.draw do
-  resources :people
+  resources :people do
+    member do
+      get  'work' => "people#show_kintai"
+      post 'work' => "people#start"
+      put  'work' => "people#finish"
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
