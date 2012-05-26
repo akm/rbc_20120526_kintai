@@ -1,4 +1,6 @@
 Kintai::Application.routes.draw do
+  resources :works
+
   resources :people do
     member do
       get  'work' => "people#show_kintai"
