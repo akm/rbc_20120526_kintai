@@ -80,4 +80,18 @@ class PeopleController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def start
+    @person = Person.find(params[:id])
+    @person.start
+    render :show_kintai
+  end
+
+  def finish
+    @person = Person.find(params[:id])
+    @person.finish
+    redirect_to @person
+  end
+
+
 end
