@@ -183,6 +183,7 @@ describe PeopleController do
       expect {
         put :finish, {:id => person.id}, valid_session
       }.to_not change(Work, :count)
+      work.reload
       work.finished_at.should_not be_nil
     end
   end
